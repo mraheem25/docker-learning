@@ -30,26 +30,43 @@ Key Benefits include:
 
 ## What I Covered in My Learning
 
-- **Images and Containers** –  
-  Images are blueprints (read-only templates), and containers are running instances of those images.  
+### Containers vs VMs
+- VMs boot full operating systems, while containers isolate processes.
+- I tested startup speed differences → seconds vs minutes.
+- Learned why containers dominate in cloud-native environments.
 
-- **Dockerfiles** –  
-  Defined a set of instructions to build custom images automatically instead of manually configuring environments.  
+### Building & Running Images
+- Wrote **Dockerfiles** from scratch with instructions like `FROM`, `RUN`, `COPY`, `WORKDIR`, `EXPOSE`, `CMD`.
+- Built images with `docker build -t` and ran them with `docker run -d -p`.
+- Experienced immutability: once built, an image doesn’t change — a crucial principle for reproducibility.
 
-- **Building Images** –  
-  Learned how to build images from Dockerfiles, ensuring reproducibility and version control of environments.  
+### Networking & Service Discovery
+- Linked containers via custom networks.
+- Understood how Docker DNS resolves service names like `redis` or `db`.
+- Saw microservices in action — Flask app talking seamlessly to Redis or MySQL.
 
-- **Creating a Simple Web App** –  
-  Packaged a Flask-based web app inside a Docker container to understand real-world use cases.  
+### Persistence
+- Realized containers are ephemeral: once stopped, data is gone.
+- Fixed this by attaching **volumes** → now Redis data survived restarts.
 
-- **Containers and Containerisation** –  
-  Explored how containerisation isolates apps while still being resource-efficient compared to full virtual machines.  
+### Configuration Management
+- Swapped hardcoded values for **environment variables**.
+- Gained flexibility: containers now adapted to different environments without touching code.
 
-- **Docker Compose** –  
-  Used `docker-compose.yml` to run multi-container applications (e.g., web app + database + proxy) with a single command.  
+### Orchestration with Docker Compose
+- Defined multi-service stacks in YAML.
+- Spun them up with a single command: `docker-compose up`.
+- Debugged port conflicts.
 
-- **Docker Networking** –  
-  Learned how containers communicate internally via bridges, exposed ports, and how services are linked together.  
+### Registries & Collaboration
+- Published images to **DockerHub** and learned about **AWS ECR**.
+- Understood how teams share and deploy containerized apps.
 
-- **Docker Registries & Docker Hub** –  
-  Pushed and pulled images from Docker Hub, understanding how registries serve as the distribution point for containers in teams and production environments.  
+### Optimizing with Multi-Stage Builds
+- Practiced slimming down images for production.
+- Learned that smaller images = faster deployments & fewer attack surfaces.
+
+### Orchestration Tools
+- Explored **Docker Swarm vs Kubernetes**.
+- Understood why Kubernetes is the industry standard for scaling containers at massive scale.
+  
